@@ -9,12 +9,15 @@ function DataSorter (Type, Ascending, DataArray){
     switch (Type){
         case "Date":{
             returnArray = sortDate(Ascending, returnArray);
+            break;
         };
         case "Title":{
             returnArray = sortTitle(Ascending, returnArray);
+            break;
         };
         case "Rating":{
             returnArray = sortRating(Ascending, returnArray);
+            break;
         };
     }
 
@@ -71,7 +74,9 @@ function sortTitle(Ascending, DataArray){
     let returnArray = [...DataArray];
 
     returnArray.sort((a,b) => {
-        return a.attr.localeCompare(b.attr)
+        let stringA = a.title;
+        let stringB = b.title;
+        return stringA.localeCompare(stringB);
     });
     if(!Ascending){
         returnArray.reverse();
