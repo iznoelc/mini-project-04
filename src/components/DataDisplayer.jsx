@@ -1,5 +1,7 @@
 import { useState, useMemo } from "react";
 import DataSorter from "./DataSorter";
+import { AiFillLike } from "react-icons/ai";
+import { AiFillDislike } from "react-icons/ai";
 
 function DataDisplayer({isLoading, data, addToFav, removeFromFav}){
     const [sortType, setSortType] = useState("Rating"); // default sort type
@@ -61,10 +63,12 @@ function DataDisplayer({isLoading, data, addToFav, removeFromFav}){
                         <p className="secondary-font text-sm">{d.short_description}</p>
                         
                         <div className="justify-end card-actions">
-                        <button className="text-xl"><i className="fa-solid fa-thumbs-up transform transition-transform duration-75 hover:text-green-500 hover:scale-125 hover:cursor-pointer"
-                                                        onClick={() => addToFav(d)}></i></button>
-                        <button className="text-xl"><i className="fa-solid fa-thumbs-down transform transition-transform duration-75 hover:text-red-500 hover:scale-125 hover:cursor-pointer"
-                                                        onClick={() => removeFromFav(d)}></i></button>
+                        <button className="text-xl transform transition-transform duration-75 hover:text-green-500 hover:scale-125 hover:cursor-pointer" onClick={() => addToFav(d)}>
+                            <AiFillLike />
+                        </button>
+                        <button className="text-xl transform transition-transform duration-75 hover:text-red-500 hover:scale-125 hover:cursor-pointer" onClick={() => removeFromFav(d)}>
+                            <AiFillDislike />
+                        </button>
                         </div>
                     </div>
                 </div>
