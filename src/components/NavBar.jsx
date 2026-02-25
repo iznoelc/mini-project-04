@@ -1,4 +1,4 @@
-function NavBar(){
+function NavBar({favorites}){
     return(
         <>
             <div className="navbar bg-base-300 shadow-lg">
@@ -24,21 +24,32 @@ function NavBar(){
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                    <li><a>Home</a></li>
-                    <li><a>Profile</a></li>
+                    <li><a className="secondary-font">Home</a></li>
+                    <li><a className="secondary-font">Profile</a></li>
                     <li>
                         <details>
-                        <summary>Movie List</summary>
+                        <summary className="secondary-font">My Liked Movies</summary>
                         <ul className="p-2 bg-base-100 w-40 z-1">
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 2</a></li>
+                        {/* {favorites == null}{
+                                
+                        }
+                        {favorites != null && (favorites.map((d, index) => (
+                            <li key={index}><a>{d.title}</a></li>
+                        ))
+                    )}; */}
+
+                        {favorites.length === 0 ? (
+                        <li><a>No likes yet!</a></li>
+                    ) : (favorites?.map((movie, index) => (
+                        <li><a key={index} className="secondary-font">{movie.title}</a></li>
+                    )))}
                         </ul>
                         </details>
                     </li>
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Download Favorites</a>
+                    <a className="btn secondary-font">Download Favorites</a>
                 </div>
             </div>
         </>

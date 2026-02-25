@@ -1,8 +1,8 @@
 import { useState, useMemo } from "react";
 import DataSorter from "./DataSorter";
 
-function DataDisplayer({isLoading, data}){
-    const [sortType, setSortType] = useState("Title"); // default sort type
+function DataDisplayer({isLoading, data, addToFav, removeFromFav}){
+    const [sortType, setSortType] = useState("Rating"); // default sort type
     const [ascending, setAscending] = useState(true); // default sort direction 
 
     /* use useMemo to cache the result of DataSorter (jnside sortedData) that its only updated when its dependencies change. 
@@ -56,8 +56,10 @@ function DataDisplayer({isLoading, data}){
                         <p className="secondary-font text-sm">{d.short_description}</p>
                         
                         <div className="justify-end card-actions">
-                        <button className="text-xl"><i className="fa-solid fa-thumbs-up transform transition-transform duration-75 hover:text-green-500 hover:scale-125 hover:cursor-pointer"></i></button>
-                        <button className="text-xl"><i className="fa-solid fa-thumbs-down transform transition-transform duration-75 hover:text-red-500 hover:scale-125 hover:cursor-pointer"></i></button>
+                        <button className="text-xl"><i className="fa-solid fa-thumbs-up transform transition-transform duration-75 hover:text-green-500 hover:scale-125 hover:cursor-pointer"
+                                                        onClick={() => addToFav(d)}></i></button>
+                        <button className="text-xl"><i className="fa-solid fa-thumbs-down transform transition-transform duration-75 hover:text-red-500 hover:scale-125 hover:cursor-pointer"
+                                                        onClick={() => removeFromFav(d)}></i></button>
                         </div>
                     </div>
                 </div>
