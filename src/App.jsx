@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import NavBar from "./components/NavBar";
 import DataDisplayer from './components/DataDisplayer';
+import Footer from './components/Footer'
 import './App.css'
-import SearchBar from "./components/Search";
+import Search from "./components/Search";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -37,8 +38,10 @@ function App() {
     return(
         <>
             <NavBar />
-            <DataDisplayer isLoading={isLoading} data={filteredData ?? data} />
             <Search data={data} onSearch={setFilteredData}></Search>
+            <DataDisplayer isLoading={isLoading} data={filteredData ?? data} />
+            <Footer />
+            
         </>
     );
 };
