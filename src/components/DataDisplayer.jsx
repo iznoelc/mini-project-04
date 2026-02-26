@@ -5,7 +5,7 @@ import { AiFillDislike } from "react-icons/ai";
 
 
 function DataDisplayer({isLoading, data, addToFav, removeFromFav}){
-    const [sortType, setSortType] = useState("Rating"); // default sort type
+    const [sortType, setSortType] = useState("Date"); // default sort type
     const [ascending, setAscending] = useState(true); // default sort direction 
 
     /* use useMemo to cache the result of DataSorter (jnside sortedData) that its only updated when its dependencies change. 

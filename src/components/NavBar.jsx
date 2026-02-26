@@ -36,19 +36,11 @@ function NavBar({favorites}){
                         <details>
                         <summary className="secondary-font">My Liked Movies</summary>
                         <ul className="p-2 bg-base-100 w-40 z-1">
-                        {/* {favorites == null}{
-                                
-                        }
-                        {favorites != null && (favorites.map((d, index) => (
-                            <li key={index}><a>{d.title}</a></li>
-                        ))
-                    )}; */}
-
-                        {favorites.length === 0 ? (
-                        <li><a>No likes yet!</a></li>
-                    ) : (favorites?.map((movie, index) => (
-                        <li><a key={index} className="secondary-font">{movie.title}</a></li>
-                    )))}
+                            {favorites.length === 0 ? (
+                                <li><a>No likes yet!</a></li>
+                            ) : (favorites?.map((movie, index) => (
+                                <li><a key={index} className="secondary-font">{movie.title}</a></li>
+                            )))}
                         </ul>
                         </details>
                     </li>
